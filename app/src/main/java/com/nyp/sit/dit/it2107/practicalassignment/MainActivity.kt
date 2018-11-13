@@ -81,26 +81,26 @@ class MainActivity : AppCompatActivity() {
                         "Reasons: \n $violenceCheck \n $languageCheck  ", Toast.LENGTH_LONG)
 
                 toast.show()
-                intent.putExtra("movieName",movieName.text.toString())
-                intent.putExtra("movieDesc",movieDesc.text.toString())
-                intent.putExtra("releaseDate",releaseDate.text.toString())
-                intent.putExtra("language",lang.toString())
-                if(notSuitable.isChecked){
-                    intent.putExtra("notSuitable","No")
-                }else{
-                    intent.putExtra("notSuitable","Yes")
-                }
-
-
-                nextButton.visibility=View.VISIBLE
+//                intent.putExtra("movieName",movieName.text.toString())
+//                intent.putExtra("movieDesc",movieDesc.text.toString())
+//                intent.putExtra("releaseDate",releaseDate.text.toString())
+//                intent.putExtra("language",lang.toString())
+//                if(notSuitable.isChecked){
+//                    intent.putExtra("notSuitable","No")
+//                }else{
+//                    intent.putExtra("notSuitable","Yes")
+//                }
+//
+//
+//                nextButton.visibility=View.VISIBLE
             }
 
 
         })
 
-        nextButton.setOnClickListener({
-            startActivity(intent)
-        })
+//        nextButton.setOnClickListener({
+//            startActivity(intent)
+//        })
 
     }
 

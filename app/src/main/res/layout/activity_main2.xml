@@ -48,18 +48,18 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/suitable" android:textSize="24sp"/>
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <Button
-                android:text="Rate Movie"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/movieRate"/>
-        <Button
-                android:text="Add movie"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/addMovieButton"/>
+    <!--<LinearLayout-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+        <!--<Button-->
+                <!--android:text="Rate Movie"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content" android:id="@+id/movieRate"/>-->
+        <!--<Button-->
+                <!--android:text="Add movie"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content" android:id="@+id/addMovieButton"/>-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 </LinearLayout>

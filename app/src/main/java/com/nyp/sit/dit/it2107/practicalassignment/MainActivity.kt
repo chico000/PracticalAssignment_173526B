@@ -81,6 +81,7 @@ class MainActivity : AppCompatActivity() {
                         "Reasons: \n $violenceCheck \n $languageCheck  ", Toast.LENGTH_LONG)
 
                 toast.show()
+                Movie("Venom","He Black", "Chinese","13-02-2020","Yes")
 //                intent.putExtra("movieName",movieName.text.toString())
 //                intent.putExtra("movieDesc",movieDesc.text.toString())
 //                intent.putExtra("releaseDate",releaseDate.text.toString())

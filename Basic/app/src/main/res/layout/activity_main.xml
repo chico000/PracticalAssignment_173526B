@@ -80,10 +80,6 @@
                 android:layout_height="wrap_content" android:id="@+id/languageUsed" android:layout_weight="0.5"
                 android:visibility="invisible"/>
     </LinearLayout>
-    <Button
-            android:text="Add Movie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/addMovie"/>
     <!--<LinearLayout-->
             <!--android:orientation="horizontal"-->
             <!--android:layout_width="match_parent"-->

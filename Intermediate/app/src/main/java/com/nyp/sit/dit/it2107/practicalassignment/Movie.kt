@@ -12,24 +12,23 @@ class Movie: Application(){
     fun setTitle1(title:String){
         this.title = title
     }
-    var desc: String=""
-    var langM:String=""
+//    var desc: String=""
+//    var langM:String=""
+//
+//    var releaseDate:String =""
+//    var suit :String=""
+//    var review : String ="Long press here to add your review"
+//
+//
 
-    var releaseDate:String =""
-    var suit :String=""
-    var review : String ="Long press here to add your review"
+    private var singleton: Movie? = null
 
-    val ourInstance = this
-    fun getInstance():Movie{
-
-        return ourInstance
+    fun getInstance(): Movie? {
+        return singleton
     }
 
-
-
-}
-fun main(args:Array<String>){
-    var movie : Movie = Movie().getInstance()
-    movie.review="Gayyyyy"
-    println(movie.title)
+    override fun onCreate() {
+        super.onCreate()
+        singleton = this
+    }
 }

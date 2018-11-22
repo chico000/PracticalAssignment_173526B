@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
@@ -12,19 +13,19 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import java.util.*
 import java.io.Serializable
 class MainActivity2 : AppCompatActivity() {
-    val movie : Movie = Movie().getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-
-
-        titleV.text  = movie.title
-        overView.text = movie.desc
-        releaseView.text = movie.releaseDate
-        langView.text =movie.langM
-        suitable.text = movie.suit
-        reviewThis.text = movie.review
+        val movie = applicationContext as Movie
+        Log.i("Why?",movie.getTitle1())
+        titleV.text  = movie.getTitle1()
+//        overView.text = movie.desc
+//        releaseView.text = movie.releaseDate
+//        langView.text =movie.langM
+//        suitable.text = movie.suit
+//        reviewThis.text = movie.review
 
         registerForContextMenu(reviewThis)
     }

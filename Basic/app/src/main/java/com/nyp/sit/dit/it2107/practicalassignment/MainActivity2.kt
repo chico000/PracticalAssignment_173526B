@@ -3,16 +3,20 @@ package com.nyp.sit.dit.it2107.practicalassignment
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Parcelable
+import android.view.ContextMenu
+import android.view.MenuItem
+import android.view.View
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_main2.*
-
+import java.util.*
+import java.io.Serializable
 class MainActivity2 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        val movie = Movie("Venom","He Black","Chinese","13-02-2019" )
-//        val intent = intent
+        val movie = intent.extras.get("movie") as Object
         val titleVar = findViewById<TextView>(R.id.title)
 
         val overVar = findViewById<TextView>(R.id.overView)
@@ -22,11 +26,12 @@ class MainActivity2 : AppCompatActivity() {
         val langVar = findViewById<TextView>(R.id.langView)
 
         val suitVar = findViewById<TextView>(R.id.suitable)
-        titleVar.text = movie.title
+        titleVar.text = movie.title.toString()
         overVar.text = movie.desc
         dateVar.text = movie.releaseDate
         langVar.text =movie.langM
         suitVar.text = movie.suit
+        reviewThis.text = movie.review
 //        val intentStart = Intent(this@MainActivity2,MainActivity::class.java )
 //        addMovieButton.setOnClickListener({
 //            startActivity(intentStart)
@@ -36,5 +41,20 @@ class MainActivity2 : AppCompatActivity() {
 //        movieRate.setOnClickListener({
 //            startActivity(intentRate)
 //        })
+        registerForContextMenu(reviewThis)
+    }
+    override fun onContextItemSelected(item: MenuItem?): Boolean {
+        val intent = Intent(this@MainActivity2,MainActivity3::class.java )
+        if(item?.itemId == 1001){
+            startActivity(intent)
+        }
+        return super.onContextItemSelected(item)
+    }
+
+    override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        if(v?.id == R.id.reviewThis){
+            menu?.add(1,1001,1,"Add Review")
+        }
     }
 }

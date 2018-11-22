@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var languageCheck = ""
     var suitable1="True"
     var lang = ""
-    val movie : Movie = Movie().getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
 
@@ -102,13 +103,15 @@ class MainActivity : AppCompatActivity() {
                         "Reasons: \n ${violenceCheck.toString()} \n ${languageCheck.toString()}  ", Toast.LENGTH_LONG)
 
                 toast.show()
-                val intention = Intent(this@MainActivity,MainActivity2::class.java )
-                movie.title=movieName.text.toString()
-                movie.desc = movieDesc.text.toString()
-                movie.releaseDate = releaseDate.text.toString()
-                movie.suit = suitable1.toString()
+                val movie = applicationContext as Movie
+                val intention = Intent(applicationContext,MainActivity2::class.java )
+                movie.setTitle1(movieName.text.toString())
+//                movie.desc = movieDesc.text.toString()
+//                movie.releaseDate = releaseDate.text.toString()
+//                movie.suit = suitable1.toString()
 
                 startActivity(intention)
+                Log.d("SendHelp",movie.getTitle1())
 
             }
 
@@ -124,4 +127,5 @@ class MainActivity : AppCompatActivity() {
 
         return super.onOptionsItemSelected(item)
     }
+
 }

@@ -19,35 +19,43 @@
             tools:layout_editor_absoluteX="16dp" android:id="@+id/textView5"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/title" android:textSize="24sp"/>
+            android:layout_height="wrap_content" android:id="@+id/title" android:textSize="18sp"/>
     <TextView
             android:text="@string/overView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:id="@+id/textView7"/>
     <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/overView" android:textSize="24sp"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/overView" android:textSize="18sp"/>
+    <TextView
+            android:text="@string/review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/textView8"/>
+    <TextView
+            android:text="Long press here to add your review"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/reviewThis" android:textSize="18sp"/>
     <TextView
             android:text="@string/lang"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/textView9"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/langView" android:textSize="24sp"/>
+            android:layout_height="wrap_content" android:id="@+id/langView" android:textSize="18sp"/>
     <TextView
             android:text="@string/release"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/textView11"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/releaseView" android:textSize="24sp"/>
+            android:layout_height="wrap_content" android:id="@+id/releaseView" android:textSize="18sp"/>
     <TextView
             android:text="@string/kid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/textView13"/>
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" android:id="@+id/suitable" android:textSize="24sp"/>
+            android:layout_height="wrap_content" android:id="@+id/suitable" android:textSize="18sp"/>
     <!--<LinearLayout-->
             <!--android:orientation="vertical"-->
             <!--android:layout_width="match_parent"-->

@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">MovieRater</string>
+    <string name="movieName">Name</string>
+    <string name="movieDescription">Description</string>
+    <string name="lang">Language</string>
+    <string name="notSuitable">Not suitable for all audience</string>
+    <string name="violence">Violence</string>
+    <string name="languageUsed">Language Used</string>
+    <string name="release">Release Date</string>
+    <string name="title">Title</string>
+    <string name="overView">Overview</string>
+    <string name="kid">Suitable for children below 13</string>
+    <string name="review">Reviews</string>
+
+</resources>

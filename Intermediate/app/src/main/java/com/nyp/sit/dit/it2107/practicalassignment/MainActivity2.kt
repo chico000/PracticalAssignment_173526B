@@ -16,21 +16,14 @@ class MainActivity2 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
-        val movie = intent.extras.get("movie") as Object
-        val titleVar = findViewById<TextView>(R.id.title)
 
-        val overVar = findViewById<TextView>(R.id.overView)
+        val movie : Movie = Movie().getInstance()
 
-        val dateVar = findViewById<TextView>(R.id.releaseView)
-
-        val langVar = findViewById<TextView>(R.id.langView)
-
-        val suitVar = findViewById<TextView>(R.id.suitable)
-        titleVar.text = movie.title.toString()
-        overVar.text = movie.desc
-        dateVar.text = movie.releaseDate
-        langVar.text =movie.langM
-        suitVar.text = movie.suit
+        titleV.text  = movie.getTitle1()
+        overView.text = movie.desc
+        releaseView.text = movie.releaseDate
+        langView.text =movie.langM
+        suitable.text = movie.suit
         reviewThis.text = movie.review
 //        val intentStart = Intent(this@MainActivity2,MainActivity::class.java )
 //        addMovieButton.setOnClickListener({

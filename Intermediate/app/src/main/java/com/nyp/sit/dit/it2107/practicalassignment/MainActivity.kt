@@ -20,6 +20,8 @@ class MainActivity : AppCompatActivity() {
     var languageCheck = ""
     var suitable1="True"
     var lang = ""
+    val movie : Movie = Movie().getInstance()
+    val i = Intent(this@MainActivity,MainActivity2::class.java )
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -37,11 +39,6 @@ class MainActivity : AppCompatActivity() {
                 suitable1="True"
             }
         }
-
-
-
-
-
 
         if(englishLang.isChecked){
             lang = "${englishLang.text}"
@@ -62,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent = Intent(this@MainActivity,MainActivity2::class.java )
+
 
         if (violence.isChecked and languageUsed.isChecked){
             violenceCheck="${violence.text}"
@@ -105,13 +102,13 @@ class MainActivity : AppCompatActivity() {
                         "Reasons: \n ${violenceCheck.toString()} \n ${languageCheck.toString()}  ", Toast.LENGTH_LONG)
 
                 toast.show()
-                val movie = Movie()
-                movie.title = movieName.text.toString()
+
+                movie.setTitle1(movieName.text.toString())
                 movie.desc = movieDesc.text.toString()
                 movie.releaseDate = releaseDate.text.toString()
                 movie.suit = suitable1.toString()
-                intent.putExtra("movie",movie)
-                startActivity(intent)
+
+                startActivity(i)
 
             }
 

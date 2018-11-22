@@ -1,52 +1,35 @@
 package com.nyp.sit.dit.it2107.practicalassignment
 
-import android.widget.EditText
-import com.nyp.sit.dit.it2107.practicalassignment.R.string.review
-import java.io.Serializable
+import android.app.Application
 
-class Movie{
-    var title: String=""
-        get() = field
-        set(value){
-            field = value
-        }
+class Movie: Application(){
 
+
+    var title =""
+    fun getTitle1():String{
+        return title
+    }
+    fun setTitle1(title:String){
+        this.title = title
+    }
     var desc: String=""
-        get() = field
-        set(value){
-            field = value
-        }
-
     var langM:String=""
-        get() = field
-        set(value){
-            field = value
-        }
 
     var releaseDate:String =""
-        get() = field
-        set(value){
-            field = value
-        }
-
     var suit :String=""
-        get() = field
-        set(value){
-            field = value
-        }
+    var review : String ="Long press here to add your review"
 
-    var review = ""
-        get() = field
-        set(value){
-            field = value
-        }
+    private val ourInstance = this
+    fun getInstance():Movie{
 
+        return ourInstance
+    }
 
 
 
 }
-//fun main(args:Array<String>){
-//    var movie = Movie()
-//    movie.review="Gayyyyy"
-//    println(movie.title)
-//}
+fun main(args:Array<String>){
+    var movie : Movie = Movie().getInstance()
+    movie.review="Gayyyyy"
+    println(movie.title)
+}

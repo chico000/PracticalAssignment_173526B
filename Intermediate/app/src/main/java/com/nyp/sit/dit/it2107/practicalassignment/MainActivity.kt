@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var suitable1="True"
     var lang = ""
     val movie : Movie = Movie().getInstance()
-    val i = Intent(this@MainActivity,MainActivity2::class.java )
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
@@ -102,13 +102,13 @@ class MainActivity : AppCompatActivity() {
                         "Reasons: \n ${violenceCheck.toString()} \n ${languageCheck.toString()}  ", Toast.LENGTH_LONG)
 
                 toast.show()
-
-                movie.setTitle1(movieName.text.toString())
+                val intention = Intent(this@MainActivity,MainActivity2::class.java )
+                movie.title=movieName.text.toString()
                 movie.desc = movieDesc.text.toString()
                 movie.releaseDate = releaseDate.text.toString()
                 movie.suit = suitable1.toString()
 
-                startActivity(i)
+                startActivity(intention)
 
             }
 

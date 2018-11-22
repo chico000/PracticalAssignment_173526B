@@ -19,7 +19,7 @@ class Movie: Application(){
     var suit :String=""
     var review : String ="Long press here to add your review"
 
-    private val ourInstance = this
+    val ourInstance = this
     fun getInstance():Movie{
 
         return ourInstance

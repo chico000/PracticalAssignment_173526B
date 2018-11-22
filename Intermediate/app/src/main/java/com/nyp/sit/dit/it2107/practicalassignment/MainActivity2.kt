@@ -12,28 +12,20 @@ import kotlinx.android.synthetic.main.activity_main2.*
 import java.util.*
 import java.io.Serializable
 class MainActivity2 : AppCompatActivity() {
+    val movie : Movie = Movie().getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
 
-        val movie : Movie = Movie().getInstance()
 
-        titleV.text  = movie.getTitle1()
+        titleV.text  = movie.title
         overView.text = movie.desc
         releaseView.text = movie.releaseDate
         langView.text =movie.langM
         suitable.text = movie.suit
         reviewThis.text = movie.review
-//        val intentStart = Intent(this@MainActivity2,MainActivity::class.java )
-//        addMovieButton.setOnClickListener({
-//            startActivity(intentStart)
-//        })
-//        val intentRate = Intent(this@MainActivity2,MainActivity3::class.java )
-//        intentRate.putExtra("movieName1",titleVar.text.toString())
-//        movieRate.setOnClickListener({
-//            startActivity(intentRate)
-//        })
+
         registerForContextMenu(reviewThis)
     }
     override fun onContextItemSelected(item: MenuItem?): Boolean {

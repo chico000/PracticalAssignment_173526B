@@ -3,7 +3,7 @@
           package="com.nyp.sit.dit.it2107.practicalassignment">
 
     <application
-            android:name="com.nyp.sit.dit.it2107.practicalassignment.Movie"
+            android:name=".Movie"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"

@@ -106,12 +106,13 @@ class MainActivity : AppCompatActivity() {
                 val movie = applicationContext as Movie
                 val intention = Intent(applicationContext,MainActivity2::class.java )
                 movie.setTitle1(movieName.text.toString())
-//                movie.desc = movieDesc.text.toString()
-//                movie.releaseDate = releaseDate.text.toString()
-//                movie.suit = suitable1.toString()
+                movie.setDesc1 (movieDesc.text.toString())
+                movie.setDate( releaseDate.text.toString())
+                movie.setSuit1(suitable1.toString())
+                movie.setLang1(lang.toString())
 
                 startActivity(intention)
-                Log.d("SendHelp",movie.getTitle1())
+
 
             }
 

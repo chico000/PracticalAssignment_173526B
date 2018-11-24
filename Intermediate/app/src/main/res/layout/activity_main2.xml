@@ -31,6 +31,13 @@
             android:text="@string/review"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:id="@+id/textView8"/>
+    <RatingBar
+            android:id="@+id/rateXingXing" android:numStars="5"
+            android:visibility="invisible" android:layout_width="wrap_content" android:layout_height="10dp"/>
+    <TextView
+            android:text="No Review yet"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:id="@+id/noRating"/>
     <TextView
             android:text="Long press here to add your review"
             android:layout_width="match_parent"

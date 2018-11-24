@@ -53,4 +53,10 @@ class MainActivity2 : AppCompatActivity() {
             menu?.add(1,1001,1,"Add Review")
         }
     }
+
+    override fun onBackPressed() {
+        val intention = Intent(applicationContext,LandingPage::class.java)
+        startActivity(intention)
+        super.onBackPressed()
+    }
 }

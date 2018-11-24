@@ -22,13 +22,13 @@
     </LinearLayout>
     <RatingBar
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/ratingBar"
+            android:layout_height="wrap_content" android:id="@+id/ratingMe"
             android:numStars="5"/>
     <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:id="@+id/editText" android:inputType="textLongMessage" android:hint="Share your view on the show "/>
+            android:id="@+id/reviewMe" android:inputType="textLongMessage" android:hint="Share your view on the show "/>
     <!--<Button-->
             <!--android:text="Movie details"-->
             <!--android:layout_width="wrap_content"-->

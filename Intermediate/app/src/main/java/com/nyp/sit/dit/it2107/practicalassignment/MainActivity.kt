@@ -110,6 +110,8 @@ class MainActivity : AppCompatActivity() {
                 movie.setDate( releaseDate.text.toString())
                 movie.setSuit1(suitable1.toString())
                 movie.setLang1(lang.toString())
+                movie.setLangUsed1(languageCheck.toString())
+                movie.setViolenceSuit1(violenceCheck.toString())
 
                 startActivity(intention)
 

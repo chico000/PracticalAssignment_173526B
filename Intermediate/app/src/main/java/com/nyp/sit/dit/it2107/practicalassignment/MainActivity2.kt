@@ -22,7 +22,7 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         val movie = applicationContext as Movie
-        Log.i("Why?",movie.getTitle1())
+
         titleV.text  = movie.getTitle1()
         overView.text = movie.getDesc1()
         releaseView.text = movie.getDate()
@@ -54,5 +54,5 @@ class MainActivity2 : AppCompatActivity() {
         }
     }
 
-   
+
 }

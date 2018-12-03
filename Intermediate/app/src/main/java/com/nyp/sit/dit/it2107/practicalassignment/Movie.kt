@@ -56,7 +56,20 @@ class Movie: Application(){
     fun setStar(star:Float){
         this.xingXing = star
     }
-
+    var langUsed : String = ""
+    fun getLangUsed1():String{
+        return langUsed
+    }
+    fun setLangUsed1(lang:String){
+        this.langUsed = lang
+    }
+    var violenceSuit : String = ""
+    fun getViolenceSuit1():String{
+        return violenceSuit
+    }
+    fun setViolenceSuit1(vio:String){
+        this.violenceSuit = vio
+    }
     private var singleton: Movie? = null
 
     fun getInstance(): Movie? {

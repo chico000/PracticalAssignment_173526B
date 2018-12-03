@@ -22,20 +22,23 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         val movie = applicationContext as Movie
-        Log.i("Why?",movie.getTitle1())
-        titleV.text  = movie.getTitle1()
-        overView.text = movie.getDesc1()
-        releaseView.text = movie.getDate()
-        langView.text =movie.getLang1()
-        suitable.text = movie.getSuit1()
-        reviewThis.text = movie.getReview1()
-
-        if (movie.getStar()>0F){
-            rateXingXing.layoutParams.height=ActionBar.LayoutParams.WRAP_CONTENT
-            rateXingXing.rating = movie.getStar()
-            rateXingXing.visibility=View.VISIBLE
-            noRating.visibility=View.INVISIBLE
+        for (i in movie.getArray()!!){
+            Log.i("Why?",i.title)
         }
+
+//        titleV.text  = movie.getArray()!![0].title
+//        overView.text = movie.getArray()!![0].desc
+//        releaseView.text = movie.getArray()!![0].releaseDate
+//        langView.text =movie.getArray()!![0].langM
+//        suitable.text = movie.getArray()!![0].suit
+//        reviewThis.text = movie.getArray()!![0].getReview1()
+//
+//        if (movie.getArray()!![0].getStar()>0F){
+//            rateXingXing.layoutParams.height=ActionBar.LayoutParams.WRAP_CONTENT
+//            rateXingXing.rating = movie.getArray()!![0].getStar()
+//            rateXingXing.visibility=View.VISIBLE
+//            noRating.visibility=View.INVISIBLE
+//        }
 
         registerForContextMenu(reviewThis)
     }

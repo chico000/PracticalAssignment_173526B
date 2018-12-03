@@ -7,10 +7,6 @@
         android:layout_height="match_parent"
         tools:context=".LandingPage" android:orientation="vertical" android:weightSum="1">
     <ListView android:layout_width="wrap_content" android:layout_height="wrap_content"
-              android:layout_weight="0.5"></ListView>
-    <TextView
-            android:text="You have not added any movie \nLong press me to add a movie"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/landingText" android:layout_weight="0.5"
-            android:textAlignment="center" android:layout_gravity="center_horizontal"/>
+              android:layout_weight="0.5" android:id="@+id/listViewMovie" android:layout_gravity="center"
+              android:textAlignment="center"></ListView>
 </LinearLayout>

@@ -1,46 +1,25 @@
 package com.nyp.sit.dit.it2107.practicalassignment
 
 import android.app.Application
+import java.util.*
+class Mov(title: String,desc: String,lang: String,date: String,suit: String){
 
-class Movie: Application(){
+    var title :String=""
 
-
-    var title =""
-    fun getTitle1():String{
-        return title
-    }
-    fun setTitle1(title:String){
-        this.title = title
-    }
     var desc: String=""
-    fun getDesc1():String{
-        return desc
-    }
-    fun setDesc1(desc:String){
-        this.desc = desc
-    }
+
     var langM:String=""
 
-    fun getLang1():String{
-        return langM
-    }
-    fun setLang1(lang:String){
-        this.langM = lang
-    }
+
     var releaseDate:String =""
-    fun getDate():String{
-        return releaseDate
-    }
-    fun setDate(date:String){
-        this.releaseDate = date
-    }
+
     var suit :String=""
-    fun getSuit1():String{
-        return suit
-    }
-    fun setSuit1(suit:String){
-        this.suit = suit
-    }
+   init {
+       this.title=title
+       this.desc=desc
+       this.langM=lang
+       this.releaseDate=date
+   }
     var review : String ="Long press here to add your review"
     fun getReview1():String{
         return review
@@ -56,7 +35,18 @@ class Movie: Application(){
     fun setStar(star:Float){
         this.xingXing = star
     }
+}
+class Movie:Application(){
 
+
+    var movieArray:ArrayList<Mov>?=null
+
+    fun getArray():ArrayList<Mov>?{
+        return movieArray
+    }
+    fun addMovie(newMovie:Mov){
+        movieArray!!.add(newMovie)
+    }
     private var singleton: Movie? = null
 
     fun getInstance(): Movie? {
@@ -68,3 +58,12 @@ class Movie: Application(){
         singleton = this
     }
 }
+//fun main(args : Array<String>) {
+//    val movie :Movie =
+//
+//    movie.setTitle1("hi")
+//    movie.addMovie(movie)
+//
+//    println(movie.getArray())
+//
+//}

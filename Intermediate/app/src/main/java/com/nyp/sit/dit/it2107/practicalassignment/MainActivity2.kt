@@ -54,9 +54,5 @@ class MainActivity2 : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        val intention = Intent(applicationContext,LandingPage::class.java)
-        startActivity(intention)
-        super.onBackPressed()
-    }
+   
 }

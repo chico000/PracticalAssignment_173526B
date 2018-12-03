@@ -15,7 +15,7 @@ class MainActivity3 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val movie = applicationContext as Movie
         setContentView(R.layout.activity_main3)
-        reviewName.text=movie.getTitle1()
+        reviewName.text=movie.getArray()!![0].getReview1()
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.reviewmenu,menu)
@@ -23,8 +23,8 @@ class MainActivity3 : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         val movie = applicationContext as Movie
-        movie.setStar(ratingMe.rating)
-        movie.setReview1(reviewMe.text.toString())
+        movie.getArray()!![0].setStar(ratingMe.rating)
+        movie.getArray()!![0].setReview1(reviewMe.text.toString())
         val intention = Intent(applicationContext,MainActivity2::class.java)
         startActivity(intention)
         return super.onOptionsItemSelected(item)

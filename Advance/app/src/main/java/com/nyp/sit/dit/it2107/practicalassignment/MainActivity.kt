@@ -105,12 +105,13 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
                 val movie = applicationContext as Movie
                 val intention = Intent(applicationContext,MainActivity2::class.java )
-                movie.setTitle1(movieName.text.toString())
-                movie.setDesc1 (movieDesc.text.toString())
-                movie.setDate( releaseDate.text.toString())
-                movie.setSuit1(suitable1.toString())
-                movie.setLang1(lang.toString())
+                val mov = Mov( movieName.text.toString(),
+                        movieDesc.text.toString(),lang.toString(),
+                        releaseDate.text.toString(),
+                        suitable1.toString()
+                        )
 
+                movie.addMovie(mov)
                 startActivity(intention)
 
 

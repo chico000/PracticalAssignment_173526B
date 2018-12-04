@@ -3,27 +3,19 @@ package com.nyp.sit.dit.it2107.practicalassignment
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Parcelable
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
-import android.widget.EditText
 import android.widget.Toast
-
-
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
-import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
-    var violenceCheck = ""
-    var languageCheck = ""
-    var suitable1="True"
-    var lang = ""
+
     override fun onCreate(savedInstanceState: Bundle?) {
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        var suitable1="True"
+        val intent = Intent(this@MainActivity,MainActivity2::class.java )
 
         notSuitable.setOnCheckedChangeListener { buttonView, isChecked ->
             if(notSuitable.isChecked){
@@ -38,44 +30,28 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        addMovie.setOnClickListener({
+            var violenceCheck = ""
+            var languageCheck = ""
+            if (violence.isChecked and languageUsed.isChecked){
+                violenceCheck="${violence.text}"
+                languageCheck="${languageUsed.text}"
+            }else if (languageUsed.isChecked){
+                languageCheck="${languageUsed.text}"
+            }else if (violence.isChecked){
+                violenceCheck="${violence.text}"
+            }
 
-
-
-
-
-        if(englishLang.isChecked){
-            lang = "${englishLang.text}"
-        }else if(chineseLang.isChecked){
-            lang = "${chineseLang.text}"
-        }else if(malayLang.isChecked){
-            lang = "${malayLang.text}"
-        }else if (tamilLang.isChecked){
-            lang = "${tamilLang.text}"
-        }
-
-
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        val intent = Intent(this@MainActivity,MainActivity2::class.java )
-
-        if (violence.isChecked and languageUsed.isChecked){
-            violenceCheck="${violence.text}"
-            languageCheck="${languageUsed.text}"
-        }else if (languageUsed.isChecked){
-            languageCheck="${languageUsed.text}"
-            violenceCheck=""
-        }else if (violence.isChecked){
-            violenceCheck="${violence.text}"
-            languageCheck=""
-        }
-        if (item?.itemId==R.id.addNew){
-
+            var lang = ""
+            if(englishLang.isChecked){
+                lang = "${englishLang.text}"
+            }else if(chineseLang.isChecked){
+                lang = "${chineseLang.text}"
+            }else if(malayLang.isChecked){
+                lang = "${malayLang.text}"
+            }else if (tamilLang.isChecked){
+                lang = "${tamilLang.text}"
+            }
 
             if(movieName.text.isEmpty() and movieDesc.text.isEmpty() and releaseDate.text.isEmpty()){
                 movieName.setError("Field Empty")
@@ -102,29 +78,31 @@ class MainActivity : AppCompatActivity() {
                         "Release Date = ${releaseDate.text} \n " +
                         "Language = $lang \n " +
                         "Suitable for all ages = $suitable1 \n " +
-                        "Reasons: \n ${violenceCheck.toString()} \n ${languageCheck.toString()}  ", Toast.LENGTH_LONG)
+                        "Reasons: \n $violenceCheck \n $languageCheck  ", Toast.LENGTH_LONG)
 
                 toast.show()
-                val movie = Movie()
-                movie.title = movieName.text.toString()
-                movie.desc = movieDesc.text.toString()
-                movie.releaseDate = releaseDate.text.toString()
-                movie.suit = suitable1.toString()
-                intent.putExtra("movie",movie)
-                startActivity(intent)
-
+                Movie("Venom","He Black", "Chinese","13-02-2020","Yes")
+//                intent.putExtra("movieName",movieName.text.toString())
+//                intent.putExtra("movieDesc",movieDesc.text.toString())
+//                intent.putExtra("releaseDate",releaseDate.text.toString())
+//                intent.putExtra("language",lang.toString())
+//                if(notSuitable.isChecked){
+//                    intent.putExtra("notSuitable","No")
+//                }else{
+//                    intent.putExtra("notSuitable","Yes")
+//                }
+//
+//
+//                nextButton.visibility=View.VISIBLE
             }
 
-        }else if (item?.itemId==R.id.clear){
-            movieName.text=null
-            movieDesc.text=null
-            releaseDate.text=null
-            notSuitable.isChecked= false
-            violence.isChecked=false
-            languageUsed.isChecked=false
-        }
 
+        })
 
-        return super.onOptionsItemSelected(item)
+//        nextButton.setOnClickListener({
+//            startActivity(intent)
+//        })
+
     }
+
 }

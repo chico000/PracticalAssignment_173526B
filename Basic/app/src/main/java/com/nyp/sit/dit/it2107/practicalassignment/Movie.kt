@@ -1,52 +1,21 @@
 package com.nyp.sit.dit.it2107.practicalassignment
 
 import android.widget.EditText
-import com.nyp.sit.dit.it2107.practicalassignment.R.string.review
-import java.io.Serializable
 
-class Movie{
-    var title: String=""
-        get() = field
-        set(value){
-            field = value
-        }
+class Movie (title:String, description:String, languageM:String, releaseD:String, suitable:String = "Yes"){
+    var title: String
+    var desc: String
+    var langM:String
+    var releaseDate:String
+    var suit :String
 
-    var desc: String=""
-        get() = field
-        set(value){
-            field = value
-        }
+    init{
+        this.title = title
+        this.desc = description
+        this.langM = languageM
+        this.releaseDate=releaseD
+        this.suit = suitable
 
-    var langM:String=""
-        get() = field
-        set(value){
-            field = value
-        }
-
-    var releaseDate:String =""
-        get() = field
-        set(value){
-            field = value
-        }
-
-    var suit :String=""
-        get() = field
-        set(value){
-            field = value
-        }
-
-    var review = ""
-        get() = field
-        set(value){
-            field = value
-        }
-
-
-
+    }
 
 }
-//fun main(args:Array<String>){
-//    var movie = Movie()
-//    movie.review="Gayyyyy"
-//    println(movie.title)
-//}

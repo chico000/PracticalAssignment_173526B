@@ -13,8 +13,8 @@ class MainActivity4 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main4)
         val movie = applicationContext as Movie
-        val position = intent.getStringExtra("postion")
-        val mov = movie.getMovie()[position.toInt()]
+        val position = intent.getIntExtra("position",0)
+        val mov = movie.getMovie().elementAt(position.toInt())
         movieName.setText( mov.title)
         movieDesc.setText(mov.desc)
         if (mov.langM == englishLang.text){
@@ -46,8 +46,8 @@ class MainActivity4 : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item?.itemId==R.id.saveBtn){
             val movie = applicationContext as Movie
-            val position = intent.getStringExtra("postion")
-            val mov = movie.getMovie()[position.toInt()]
+            val position = intent.getIntExtra("position",0)
+            val mov = movie.getMovie().elementAt(position.toInt())
             mov.title=movieName.text.toString()
             mov.desc=movieDesc.text.toString()
             mov.releaseDate=releaseDate.text.toString()

@@ -54,6 +54,7 @@ class LandingPage : AppCompatActivity() {
             val mov = getItem(position) as MovieEntity
             var titleName = rowView.findViewById(R.id.titleName) as TextView
             titleName.text = mov.title
+
             val thumbnailImageView = rowView.findViewById(R.id.imageMovie) as ImageView
             thumbnailImageView.setImageResource(R.mipmap.ic_launcher_foreground)
 
@@ -89,15 +90,18 @@ class LandingPage : AppCompatActivity() {
 //    }
 
     override fun onContextItemSelected(item: MenuItem?): Boolean {
-        val intent = Intent(this@LandingPage,MainActivity::class.java )
-        if(item?.itemId == 1001){
+        val intent = Intent(this@LandingPage,MainActivity4::class.java )
 
-            val intention = Intent(applicationContext,MainActivity4::class.java)
-            intention.putExtra("position",pos)
-
-            startActivity(intention)
+        val info = item?.menuInfo as AdapterView.AdapterContextMenuInfo
+        if (item.itemId==1001){
+            val movie = applicationContext as Movie
+            intent.putExtra("position",info.id.toInt())
+            Toast.makeText(applicationContext,info.id.toInt().toString(),Toast.LENGTH_LONG).show()
+            startActivity(intent)
         }
+
         return super.onContextItemSelected(item)
+
     }
 
     override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {

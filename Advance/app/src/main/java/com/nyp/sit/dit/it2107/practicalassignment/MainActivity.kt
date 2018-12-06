@@ -1,20 +1,22 @@
 package com.nyp.sit.dit.it2107.practicalassignment
 
+import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
-import android.view.View
+import android.view.*
+import android.widget.ArrayAdapter
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 import java.io.Serializable
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
     var violenceCheck = ""
@@ -41,6 +43,18 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+
+    }
+
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main,menu)
+
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+
         if(englishLang.isChecked){
             lang = "${englishLang.text}"
         }else if(chineseLang.isChecked){
@@ -50,18 +64,6 @@ class MainActivity : AppCompatActivity() {
         }else if (tamilLang.isChecked){
             lang = "${tamilLang.text}"
         }
-
-
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main,menu)
-        return super.onCreateOptionsMenu(menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-
-
         if (violence.isChecked and languageUsed.isChecked){
             violenceCheck="${violence.text}"
             languageCheck="${languageUsed.text}"
@@ -105,13 +107,15 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
                 val movie = applicationContext as Movie
                 val intention = Intent(applicationContext,MainActivity2::class.java )
-                val mov = Mov( movieName.text.toString(),
-                        movieDesc.text.toString(),lang.toString(),
-                        releaseDate.text.toString(),
-                        suitable1.toString()
-                        )
 
-                movie.addMovie(mov)
+                val movieEn = MovieEntity(  movieName.text.toString(),
+                        movieDesc.text.toString(),
+                        releaseDate.text.toString(),
+                        suitable1.toString(),
+                        lang.toString(),
+                        languageCheck.toString(),
+                        violenceCheck.toString())
+                movie.addMovie(movieEn)
                 startActivity(intention)
 
 

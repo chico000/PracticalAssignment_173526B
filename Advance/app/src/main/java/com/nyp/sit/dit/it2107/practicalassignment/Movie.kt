@@ -1,51 +1,44 @@
 package com.nyp.sit.dit.it2107.practicalassignment
 
 import android.app.Application
-import java.util.*
-class Mov(title: String,desc: String,lang: String,date: String,suit: String){
+class MovieEntity(title:String,desc:String,date:String,suit:String,lang:String,langUsed:String,violence:String){
+    var title =title
 
-    var title :String=""
-
-    var desc: String=""
-
-    var langM:String=""
+    var desc: String=desc
 
 
-    var releaseDate:String =""
+    var langM:String=lang
 
-    var suit :String=""
-   init {
-       this.title=title
-       this.desc=desc
-       this.langM=lang
-       this.releaseDate=date
-   }
+
+    var releaseDate:String =date
+
+    var suit :String=suit
+
     var review : String ="Long press here to add your review"
-    fun getReview1():String{
-        return review
-    }
-    fun setReview1(review:String){
-        this.review = review
-    }
+
 
     var xingXing : Float = 0F
-    fun getStar():Float{
-        return xingXing
-    }
-    fun setStar(star:Float){
-        this.xingXing = star
-    }
+
+    var langUsed : String = langUsed
+
+    var violenceSuit : String = violence
+
+
 }
 class Movie:Application(){
 
 
-    var movieArray:ArrayList<Mov>?=null
 
-    fun getArray():ArrayList<Mov>?{
-        return movieArray
+    var movieArray:ArrayList<MovieEntity>
+    init {
+        this.movieArray= arrayListOf()
     }
-    fun addMovie(newMovie:Mov){
-        movieArray!!.add(newMovie)
+    fun addMovie(newMovieEntity: MovieEntity){
+        this.movieArray.add(newMovieEntity)
+    }
+
+    fun getMovie():ArrayList<MovieEntity>{
+        return this.movieArray
     }
     private var singleton: Movie? = null
 
@@ -58,12 +51,3 @@ class Movie:Application(){
         singleton = this
     }
 }
-//fun main(args : Array<String>) {
-//    val movie :Movie =
-//
-//    movie.setTitle1("hi")
-//    movie.addMovie(movie)
-//
-//    println(movie.getArray())
-//
-//}

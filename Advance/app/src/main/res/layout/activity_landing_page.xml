@@ -5,8 +5,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".LandingPage" android:orientation="vertical" android:weightSum="1">
-    <ListView android:layout_width="wrap_content" android:layout_height="wrap_content"
-              android:layout_weight="0.5" android:id="@+id/listViewMovie" android:layout_gravity="center"
-              android:textAlignment="center"></ListView>
+        tools:context=".LandingPage" android:orientation="vertical">
+
+    <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:layout_weight="1" android:id="@+id/listView"/>
 </LinearLayout>

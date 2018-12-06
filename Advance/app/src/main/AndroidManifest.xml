@@ -3,14 +3,16 @@
           package="com.nyp.sit.dit.it2107.practicalassignment">
 
     <application
-            android:name="com.nyp.sit.dit.it2107.practicalassignment.Movie"
+            android:name=".Movie"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".LandingPage" android:exported="true">
+        <activity
+                android:name=".LandingPage"
+                android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
@@ -19,6 +21,7 @@
         </activity>
         <activity
                 android:name=".MainActivity"
+                android:parentActivityName=".LandingPage"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -28,15 +31,18 @@
         </activity>
         <activity
                 android:name=".MainActivity2"
+                android:parentActivityName=".LandingPage"
                 android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.EDIT"/>
+                <action android:name="android.intent.action.VIEW"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
                 android:name=".MainActivity3"
+                android:parentActivityName=".MainActivity2"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -45,6 +51,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".MainActivity4" android:parentActivityName=".LandingPage" android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

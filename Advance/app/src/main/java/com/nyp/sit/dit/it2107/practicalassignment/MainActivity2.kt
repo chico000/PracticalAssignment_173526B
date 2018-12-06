@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_main3.*
 import java.util.*
@@ -22,23 +23,26 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         val movie = applicationContext as Movie
-        for (i in movie.getArray()!!){
-            Log.i("Why?",i.title)
-        }
+        val mov = movie.getMovie().last()
 
-//        titleV.text  = movie.getArray()!![0].title
-//        overView.text = movie.getArray()!![0].desc
-//        releaseView.text = movie.getArray()!![0].releaseDate
-//        langView.text =movie.getArray()!![0].langM
-//        suitable.text = movie.getArray()!![0].suit
-//        reviewThis.text = movie.getArray()!![0].getReview1()
-//
-//        if (movie.getArray()!![0].getStar()>0F){
-//            rateXingXing.layoutParams.height=ActionBar.LayoutParams.WRAP_CONTENT
-//            rateXingXing.rating = movie.getArray()!![0].getStar()
-//            rateXingXing.visibility=View.VISIBLE
-//            noRating.visibility=View.INVISIBLE
-//        }
+        titleV.text  = mov.title
+        overView.text = mov.desc
+        releaseView.text = mov.releaseDate
+        langView.text =mov.langM
+        if(mov.suit =="True"){
+            suitable.text = mov.suit
+        }
+        else{
+            suitable.text = mov.suit +"( " + mov.violenceSuit +" " +mov.langUsed+ " )"
+        }
+        reviewThis.text = mov.review
+
+        if (mov.xingXing>0F){
+            rateXingXing.layoutParams.height=ActionBar.LayoutParams.WRAP_CONTENT
+            rateXingXing.rating = mov.xingXing
+            rateXingXing.visibility=View.VISIBLE
+            noRating.visibility=View.INVISIBLE
+        }
 
         registerForContextMenu(reviewThis)
     }
@@ -57,9 +61,5 @@ class MainActivity2 : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        val intention = Intent(applicationContext,LandingPage::class.java)
-        startActivity(intention)
-        super.onBackPressed()
-    }
+
 }

@@ -73,12 +73,12 @@
                 android:text="@string/violence"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/violence" android:layout_weight="0.5"
-                android:checked="false" android:visibility="invisible"/>
+                android:checked="false" android:visibility="visible"/>
         <CheckBox
                 android:text="@string/languageUsed"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" android:id="@+id/languageUsed" android:layout_weight="0.5"
-                android:visibility="invisible"/>
+                android:visibility="visible"/>
     </LinearLayout>
 
 </LinearLayout>

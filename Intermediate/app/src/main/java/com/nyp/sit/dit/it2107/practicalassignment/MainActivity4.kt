@@ -1,7 +1,10 @@
 package com.nyp.sit.dit.it2107.practicalassignment
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main4.*
 
 class MainActivity4 : AppCompatActivity() {
@@ -10,25 +13,72 @@ class MainActivity4 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main4)
         val movie = applicationContext as Movie
-        movieName.setText( movie.getTitle1())
-        movieDesc.setText(movie.getDesc1())
-        if (movie.getLang1() == "English"){
+        val mov = movie.getMovie()!!.last()
+        movieName.setText( mov.title)
+        movieDesc.setText(mov.desc)
+        if (mov.langM == englishLang.text){
             englishLang.isChecked = true
 
-        }else if(movie.getLang1() == "Chinese"){
+        }else if(mov.langM == chineseLang.text){
             chineseLang.isChecked = true
-        }else if (movie.getLang1() == "Malay"){
+        }else if (mov.langM == malayLang.text){
             malayLang.isChecked = true
         }else {
             tamilLang.isChecked = true
         }
-        releaseDate.setText(movie.getDate())
-        if(movie.getSuit1() != ""){
+        releaseDate.setText(mov.releaseDate)
+
+        if(mov.suit == "False")
             notSuitable.isChecked = true
-        }
-        if(movie.getLangUsed1() != "")
+
+        if(mov.langUsed != "")
             languageUsed.isChecked = true
-        if(movie.getViolenceSuit1()!="")
+        if(mov.violenceSuit!="")
             violence.isChecked=true
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.save,menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId==R.id.saveBtn){
+            val movie = applicationContext as Movie
+            val mov = movie.getMovie()!!.last()
+            mov.title=movieName.text.toString()
+            mov.desc=movieDesc.text.toString()
+            mov.releaseDate=releaseDate.text.toString()
+            if(!notSuitable.isChecked){
+                mov.suit ="True"
+            }else{
+                mov.suit ="False"
+            }
+            if(englishLang.isChecked){
+                mov.langM= "${englishLang.text}"
+            }else if(chineseLang.isChecked){
+                mov.langM = "${chineseLang.text}"
+            }else if(malayLang.isChecked){
+                mov.langM = "${malayLang.text}"
+            }else if (tamilLang.isChecked){
+                mov.langM = "${tamilLang.text}"
+            }
+            if (violence.isChecked and languageUsed.isChecked){
+                mov.violenceSuit="${violence.text}"
+                mov.langUsed="${languageUsed.text}"
+            }else if (languageUsed.isChecked){
+                mov.langUsed="${languageUsed.text}"
+                mov.violenceSuit=""
+            }else if (violence.isChecked){
+                mov.violenceSuit="${violence.text}"
+                mov.langUsed=""
+            }
+            val intention = Intent(applicationContext,MainActivity2::class.java )
+            startActivity(intention)
+    }else{
+            val intention = Intent(applicationContext,LandingPage::class.java )
+            startActivity(intention)
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

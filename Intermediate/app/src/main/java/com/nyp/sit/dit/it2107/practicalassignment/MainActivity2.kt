@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.RatingBar
 import android.widget.TextView
+import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_main3.*
 import java.util.*
@@ -22,17 +23,23 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         val movie = applicationContext as Movie
+        val mov = movie.getMovie()!!.last()
 
-        titleV.text  = movie.getTitle1()
-        overView.text = movie.getDesc1()
-        releaseView.text = movie.getDate()
-        langView.text =movie.getLang1()
-        suitable.text = movie.getSuit1()
-        reviewThis.text = movie.getReview1()
+        titleV.text  = mov.title
+        overView.text = mov.desc
+        releaseView.text = mov.releaseDate
+        langView.text =mov.langM
+        if(mov.suit =="True"){
+            suitable.text = mov.suit
+        }
+        else{
+            suitable.text = mov.suit +"( " + mov.violenceSuit +" " +mov.langUsed+ " )"
+        }
+        reviewThis.text = mov.review
 
-        if (movie.getStar()>0F){
+        if (mov.xingXing>0F){
             rateXingXing.layoutParams.height=ActionBar.LayoutParams.WRAP_CONTENT
-            rateXingXing.rating = movie.getStar()
+            rateXingXing.rating = mov.xingXing
             rateXingXing.visibility=View.VISIBLE
             noRating.visibility=View.INVISIBLE
         }

@@ -41,15 +41,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        if(englishLang.isChecked){
-            lang = "${englishLang.text}"
-        }else if(chineseLang.isChecked){
-            lang = "${chineseLang.text}"
-        }else if(malayLang.isChecked){
-            lang = "${malayLang.text}"
-        }else if (tamilLang.isChecked){
-            lang = "${tamilLang.text}"
-        }
+
 
 
     }
@@ -61,7 +53,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
 
-
+        if(englishLang.isChecked){
+            lang = "${englishLang.text}"
+        }else if(chineseLang.isChecked){
+            lang = "${chineseLang.text}"
+        }else if(malayLang.isChecked){
+            lang = "${malayLang.text}"
+        }else if (tamilLang.isChecked){
+            lang = "${tamilLang.text}"
+        }
         if (violence.isChecked and languageUsed.isChecked){
             violenceCheck="${violence.text}"
             languageCheck="${languageUsed.text}"
@@ -105,14 +105,15 @@ class MainActivity : AppCompatActivity() {
                 toast.show()
                 val movie = applicationContext as Movie
                 val intention = Intent(applicationContext,MainActivity2::class.java )
-                movie.setTitle1(movieName.text.toString())
-                movie.setDesc1 (movieDesc.text.toString())
-                movie.setDate( releaseDate.text.toString())
-                movie.setSuit1(suitable1.toString())
-                movie.setLang1(lang.toString())
-                movie.setLangUsed1(languageCheck.toString())
-                movie.setViolenceSuit1(violenceCheck.toString())
 
+                val movieEn = MovieEntity(  movieName.text.toString(),
+                        movieDesc.text.toString(),
+                        releaseDate.text.toString(),
+                        suitable1.toString(),
+                        lang.toString(),
+                        languageCheck.toString(),
+                        violenceCheck.toString())
+                movie.addMovie(movieEn)
                 startActivity(intention)
 
 

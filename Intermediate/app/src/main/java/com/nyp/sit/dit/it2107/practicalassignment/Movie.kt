@@ -1,74 +1,44 @@
 package com.nyp.sit.dit.it2107.practicalassignment
 
 import android.app.Application
+class MovieEntity(title:String,desc:String,date:String,suit:String,lang:String,langUsed:String,violence:String){
+    var title =title
 
-class Movie: Application(){
+    var desc: String=desc
 
 
-    var title =""
-    fun getTitle1():String{
-        return title
-    }
-    fun setTitle1(title:String){
-        this.title = title
-    }
-    var desc: String=""
-    fun getDesc1():String{
-        return desc
-    }
-    fun setDesc1(desc:String){
-        this.desc = desc
-    }
-    var langM:String=""
+    var langM:String=lang
 
-    fun getLang1():String{
-        return langM
-    }
-    fun setLang1(lang:String){
-        this.langM = lang
-    }
-    var releaseDate:String =""
-    fun getDate():String{
-        return releaseDate
-    }
-    fun setDate(date:String){
-        this.releaseDate = date
-    }
-    var suit :String=""
-    fun getSuit1():String{
-        return suit
-    }
-    fun setSuit1(suit:String){
-        this.suit = suit
-    }
+
+    var releaseDate:String =date
+
+    var suit :String=suit
+
     var review : String ="Long press here to add your review"
-    fun getReview1():String{
-        return review
-    }
-    fun setReview1(review:String){
-        this.review = review
-    }
+
 
     var xingXing : Float = 0F
-    fun getStar():Float{
-        return xingXing
+
+    var langUsed : String = langUsed
+
+    var violenceSuit : String = violence
+
+
+}
+class Movie:Application(){
+
+
+
+    var movieArray:ArrayList<MovieEntity>?=null
+    fun addMovie(newMovieEntity: MovieEntity){
+        if(movieArray==null){
+            movieArray = arrayListOf<MovieEntity>()
+        }
+        movieArray?.add(newMovieEntity)
     }
-    fun setStar(star:Float){
-        this.xingXing = star
-    }
-    var langUsed : String = ""
-    fun getLangUsed1():String{
-        return langUsed
-    }
-    fun setLangUsed1(lang:String){
-        this.langUsed = lang
-    }
-    var violenceSuit : String = ""
-    fun getViolenceSuit1():String{
-        return violenceSuit
-    }
-    fun setViolenceSuit1(vio:String){
-        this.violenceSuit = vio
+
+    fun getMovie():ArrayList<MovieEntity>?{
+        return movieArray
     }
     private var singleton: Movie? = null
 

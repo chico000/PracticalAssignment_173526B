@@ -20,6 +20,11 @@ class LandingPage : AppCompatActivity() {
         if(movie.getMovie().isNotEmpty()) {
             val adapter = Adapter(applicationContext, movie.getMovie())
             listView.adapter = adapter
+            listView.setOnItemClickListener { parent, view, position, id ->
+                val intention = Intent(applicationContext,MainActivity2::class.java)
+                intention.putExtra("position",position)
+                startActivity(intention)
+            }
 
         }
 
@@ -94,9 +99,9 @@ class LandingPage : AppCompatActivity() {
 
         val info = item?.menuInfo as AdapterView.AdapterContextMenuInfo
         if (item.itemId==1001){
-            val movie = applicationContext as Movie
+
             intent.putExtra("position",info.id.toInt())
-            Toast.makeText(applicationContext,info.id.toInt().toString(),Toast.LENGTH_LONG).show()
+
             startActivity(intent)
         }
 

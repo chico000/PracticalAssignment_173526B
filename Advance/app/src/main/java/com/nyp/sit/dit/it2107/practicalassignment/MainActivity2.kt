@@ -23,7 +23,14 @@ class MainActivity2 : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
         val movie = applicationContext as Movie
-        val mov = movie.getMovie().last()
+        var pos = intent.getIntExtra("position",-1)
+        val mov:MovieEntity
+        if(pos >=0){
+            mov=movie.getMovie().elementAt(pos)
+        }else{
+            mov= movie.getMovie().last()
+        }
+
 
         titleV.text  = mov.title
         overView.text = mov.desc
